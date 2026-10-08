@@ -1,8 +1,8 @@
 <p align="center">
 	<img alt="logo" src="https://oscimg.oschina.net/oscnet/up-d3d0a9303e11d522a06cd263f3079027715.png">
 </p>
-<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">RuoYi v3.9.1</h1>
-<h4 align="center">基于SpringBoot+Vue前后端分离的Java快速开发框架</h4>
+<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">RuoYi-Vaadin v3.9.1</h1>
+<h4 align="center">基于SpringBoot+Vaadin前后端分离的Java快速开发框架</h4>
 <p align="center">
 	<a href="https://gitee.com/y_project/RuoYi-Vue/stargazers"><img src="https://gitee.com/y_project/RuoYi-Vue/badge/star.svg?theme=dark"></a>
 	<a href="https://gitee.com/y_project/RuoYi-Vue"><img src="https://img.shields.io/badge/RuoYi-v3.9.1-brightgreen.svg"></a>
@@ -13,15 +13,90 @@
 
 若依是一套全部开源的快速开发平台，毫无保留给个人及企业免费使用。
 
-* 前端采用Vaadin。
+**本项目是 [RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue.git) 的派生版本，前端使用 [Vaadin](https://vaadin.com/) 替代了 Vue，后端保持 Spring Boot 架构。**
+
+**前端实现参考了：[ruoyi-react](https://gitee.com/whiteshader/ruoyi-react)**
+
+* **前端采用 Vaadin**（注意：不是 Vue），基于 Java 实现服务端渲染。使用了vaadin-antd、vaadin-antd-procomponents、vaadin-antd-chart等组件库。
 * 后端采用Spring Boot、Spring Security、Redis & Jwt。
 * 权限认证使用Jwt，支持多终端认证系统。
 * 支持加载动态权限菜单，多方式轻松权限控制。
 * 高效率开发，使用代码生成器可以一键生成前后端代码。
-* 提供了技术栈（[Vue3](https://v3.cn.vuejs.org) [Element Plus](https://element-plus.org/zh-CN) [Vite](https://cn.vitejs.dev)）版本[RuoYi-Vue3](https://gitcode.com/yangzongzhuan/RuoYi-Vue3)，保持同步更新。
-* 提供了单应用版本[RuoYi-Vue-fast](https://gitcode.com/yangzongzhuan/RuoYi-Vue-fast)，Oracle版本[RuoYi-Vue-Oracle](https://gitcode.com/yangzongzhuan/RuoYi-Vue-Oracle)，保持同步更新。
-* 不分离版本，请移步[RuoYi](https://gitee.com/y_project/RuoYi)，微服务版本，请移步[RuoYi-Cloud](https://gitee.com/y_project/RuoYi-Cloud)
-* 阿里云折扣场：[点我进入](http://aly.ruoyi.vip)，腾讯云秒杀场：[点我进入](http://txy.ruoyi.vip)&nbsp;&nbsp;
+* **使用说明**：本项目作为普通的 Spring Boot 项目使用，无需前端构建工具，直接运行即可。
+
+## 关于 Vaadin
+
+### 什么是 Vaadin？
+
+[Vaadin](https://vaadin.com/) 是一个开源的全栈 Java UI 框架，让您可以**完全使用 Java 构建现代化的 Web 应用程序**，无需编写 HTML、CSS 或 JavaScript。
+
+### 核心优势
+
+#### 1. 全栈 Java，无需切换项目
+
+- **告别前后端分离的繁琐**：不需要在 Java 后端项目和 Vue/React 前端项目之间来回切换
+- **统一技术栈**：前后端都使用 Java，团队只需要掌握一种语言
+- **单一代码库**：所有代码都在一个项目中，简化了构建、部署和维护
+
+#### 2. 代码量更少，效率更高
+
+根据实际项目案例统计：
+
+| 对比项 | 传统前后端分离 | 使用 Vaadin | 提升效果 |
+|--------|----------------|-------------|----------|
+| 代码量 | 需要编写 HTML/CSS/JS/REST API | 只需编写 Java | **减少 40%-60%** |
+| 开发时间 | 前后端分别开发、联调 | 一体化开发 | **节省 30%-50%** |
+| 维护成本 | 多项目、多技术栈 | 单一项目、单一技术栈 | **降低 50%+** |
+
+**真实案例数据**：
+- **HDI 保险集团**：从 450,000 行代码减少到 250,000 行，**代码量减少 44%**
+- **Virsion 初创公司**：2 人团队节省了至少 1 个月的开发时间
+- **qubIT**：15 人团队管理 4,000+ 页面的企业级应用
+- **South Tyrol 政府**：7 人团队交付了 16 个生产模块，支持 116 个市政机构
+
+#### 3. 像开发桌面应用一样简单
+
+```java
+// 创建一个表格，就像使用 Swing/JavaFX 一样简单
+ProTable<User> table = new ProTable<>(User.class)
+    .setColumns(
+        new ProColumn<User>().setTitle("姓名").setDataIndex(User::getName),
+        new ProColumn<User>().setTitle("邮箱").setDataIndex(User::getEmail)
+    )
+    .setItems(userService.findAll());
+
+add(table);
+```
+
+#### 4. 企业级特性
+
+- **安全性**：服务端渲染，最小化攻击面
+- **可扩展性**：支持数千并发用户
+- **丰富的组件库**：表格、表单、图表、地图等 40+ 组件
+- **Spring Boot 集成**：无缝集成，开箱即用
+- **响应式设计**：自动适配桌面、平板、手机
+
+### 与传统前端开发对比
+
+| 特性 | 传统方式（Vue/React） | Vaadin |
+|------|----------------------|--------|
+| 开发语言 | JavaScript/TypeScript + Java | 纯 Java |
+| 项目数量 | 前端项目 + 后端项目 | 单一项目 |
+| 需要掌握的技术 | HTML/CSS/JS/框架/REST API | Java |
+| 前后端通信 | 需要编写 REST API 和 HTTP 调用 | 自动处理 |
+| 状态管理 | Redux/Vuex/Pinia 等 | 服务端状态，无需额外管理 |
+| 构建工具 | Webpack/Vite + Maven/Gradle | 仅 Maven/Gradle |
+| 调试 | 浏览器 DevTools + IDE | 仅 IDE |
+| 部署 | 前端构建 + 后端部署 | 单一 WAR/JAR 包 |
+
+### 适合的场景
+
+- **企业级管理系统**：ERP、CRM、OA 等
+- **数据密集型应用**：报表、仪表盘、数据分析
+- **内部工具**：快速开发企业内部系统
+- **Java 团队**：团队主要技能是 Java，前端经验有限
+- **追求效率**：希望快速交付、降低维护成本
+
 
 ## 内置功能
 
@@ -52,114 +127,170 @@
 演示地址：http://vue.ruoyi.vip  
 文档地址：http://doc.ruoyi.vip
 
-## 模块依赖关系
-我将为您生成此Maven项目的模块依赖图。首先让我检查项目的pom.xml文件以了解模块结构。
 
 
-
-
-**已查看文件** *pom.xml*
-
-
-现在让我检查各个子模块的pom.xml文件，以了解它们之间的依赖关系。
-
-
-
-
-**已查看文件** *pom.xml*
-
-**已查看文件** *pom.xml*
-
-**已查看文件** *pom.xml*
-
-**已查看文件** *pom.xml*
-
-**已查看文件** *pom.xml*
-
-**已查看文件** *pom.xml*
-
-
-根据分析项目中的各个模块的pom.xml文件，我为您生成了此Maven项目的模块依赖图：
-
-```mermaid
-graph TD
-    A[ruoyi-parent] --> B[ruoyi-admin]
-    A[ruoyi-parent] --> C[ruoyi-framework]
-    A[ruoyi-parent] --> D[ruoyi-system]
-    A[ruoyi-parent] --> E[ruoyi-common]
-    A[ruoyi-parent] --> F[ruoyi-generator]
-    A[ruoyi-parent] --> G[ruoyi-quartz]
-
-    B[ruoyi-admin] --> C[ruoyi-framework]
-    B[ruoyi-admin] --> G[ruoyi-quartz]
-    B[ruoyi-admin] --> F[ruoyi-generator]
-
-    C[ruoyi-framework] --> D[ruoyi-system]
-
-    D[ruoyi-system] --> E[ruoyi-common]
-
-    F[ruoyi-generator] --> E[ruoyi-common]
-
-    G[ruoyi-quartz] --> E[ruoyi-common]
-```
-
-
-此依赖图展示了RuoYi-Vaadin项目的模块结构和依赖关系：
-
-1. **ruoyi-parent**: 顶级父POM，定义了所有模块的公共配置
-2. **ruoyi-admin**: Web服务入口模块，依赖于framework、quartz和generator模块
-3. **ruoyi-framework**: 框架核心模块，依赖于system模块
-4. **ruoyi-system**: 系统模块，依赖于common模块
-5. **ruoyi-common**: 通用工具模块，被其他业务模块依赖
-6. **ruoyi-generator**: 代码生成模块，依赖于common模块
-7. **ruoyi-quartz**: 定时任务模块，依赖于common模块
-
-依赖关系遵循分层架构原则，其中ruoyi-common作为基础工具模块被多个上层模块依赖，ruoyi-system作为系统模块依赖于基础工具模块，而ruoyi-framework作为框架核心依赖于系统模块。Web入口模块ruoyi-admin则依赖于多个业务功能模块。
-
-## 演示图
-
-<table>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/cd1f90be5f2684f4560c9519c0f2a232ee8.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/1cbcf0e6f257c7d3a063c0e3f2ff989e4b3.jpg"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-8074972883b5ba0622e13246738ebba237a.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-9f88719cdfca9af2e58b352a20e23d43b12.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-39bf2584ec3a529b0d5a3b70d15c9b37646.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-936ec82d1f4872e1bc980927654b6007307.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-b2d62ceb95d2dd9b3fbe157bb70d26001e9.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-d67451d308b7a79ad6819723396f7c3d77a.png"/></td>
-    </tr>	 
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/5e8c387724954459291aafd5eb52b456f53.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/644e78da53c2e92a95dfda4f76e6d117c4b.jpg"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-8370a0d02977eebf6dbf854c8450293c937.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-49003ed83f60f633e7153609a53a2b644f7.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-d4fe726319ece268d4746602c39cffc0621.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-c195234bbcd30be6927f037a6755e6ab69c.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/b6115bc8c31de52951982e509930b20684a.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-5e4daac0bb59612c5038448acbcef235e3a.png"/></td>
-    </tr>
-</table>
-
-
-## 若依前后端分离交流群
-
-QQ群： [![加入QQ群](https://img.shields.io/badge/已满-937441-blue.svg)](https://jq.qq.com/?_wv=1027&k=5bVB1og) [![加入QQ群](https://img.shields.io/badge/已满-887144332-blue.svg)](https://jq.qq.com/?_wv=1027&k=5eiA4DH) [![加入QQ群](https://img.shields.io/badge/已满-180251782-blue.svg)](https://jq.qq.com/?_wv=1027&k=5AxMKlC) [![加入QQ群](https://img.shields.io/badge/已满-104180207-blue.svg)](https://jq.qq.com/?_wv=1027&k=51G72yr) [![加入QQ群](https://img.shields.io/badge/已满-186866453-blue.svg)](https://jq.qq.com/?_wv=1027&k=VvjN2nvu) [![加入QQ群](https://img.shields.io/badge/已满-201396349-blue.svg)](https://jq.qq.com/?_wv=1027&k=5vYAqA05) [![加入QQ群](https://img.shields.io/badge/已满-101456076-blue.svg)](https://jq.qq.com/?_wv=1027&k=kOIINEb5) [![加入QQ群](https://img.shields.io/badge/已满-101539465-blue.svg)](https://jq.qq.com/?_wv=1027&k=UKtX5jhs) [![加入QQ群](https://img.shields.io/badge/已满-264312783-blue.svg)](https://jq.qq.com/?_wv=1027&k=EI9an8lJ) [![加入QQ群](https://img.shields.io/badge/已满-167385320-blue.svg)](https://jq.qq.com/?_wv=1027&k=SWCtLnMz) [![加入QQ群](https://img.shields.io/badge/已满-104748341-blue.svg)](https://jq.qq.com/?_wv=1027&k=96Dkdq0k) [![加入QQ群](https://img.shields.io/badge/已满-160110482-blue.svg)](https://jq.qq.com/?_wv=1027&k=0fsNiYZt) [![加入QQ群](https://img.shields.io/badge/已满-170801498-blue.svg)](https://jq.qq.com/?_wv=1027&k=7xw4xUG1) [![加入QQ群](https://img.shields.io/badge/已满-108482800-blue.svg)](https://jq.qq.com/?_wv=1027&k=eCx8eyoJ) [![加入QQ群](https://img.shields.io/badge/已满-101046199-blue.svg)](https://jq.qq.com/?_wv=1027&k=SpyH2875) [![加入QQ群](https://img.shields.io/badge/已满-136919097-blue.svg)](https://jq.qq.com/?_wv=1027&k=tKEt51dz) [![加入QQ群](https://img.shields.io/badge/已满-143961921-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=0vBbSb0ztbBgVtn3kJS-Q4HUNYwip89G&authKey=8irq5PhutrZmWIvsUsklBxhj57l%2F1nOZqjzigkXZVoZE451GG4JHPOqW7AW6cf0T&noverify=0&group_code=143961921) [![加入QQ群](https://img.shields.io/badge/已满-174951577-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ZFAPAbp09S2ltvwrJzp7wGlbopsc0rwi&authKey=HB2cxpxP2yspk%2Bo3WKTBfktRCccVkU26cgi5B16u0KcAYrVu7sBaE7XSEqmMdFQp&noverify=0&group_code=174951577) [![加入QQ群](https://img.shields.io/badge/已满-161281055-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Fn2aF5IHpwsy8j6VlalNJK6qbwFLFHat&authKey=uyIT%2B97x2AXj3odyXpsSpVaPMC%2Bidw0LxG5MAtEqlrcBcWJUA%2FeS43rsF1Tg7IRJ&noverify=0&group_code=161281055) [![加入QQ群](https://img.shields.io/badge/已满-138988063-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XIzkm_mV2xTsUtFxo63bmicYoDBA6Ifm&authKey=dDW%2F4qsmw3x9govoZY9w%2FoWAoC4wbHqGal%2BbqLzoS6VBarU8EBptIgPKN%2FviyC8j&noverify=0&group_code=138988063) [![加入QQ群](https://img.shields.io/badge/已满-151450850-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=DkugnCg68PevlycJSKSwjhFqfIgrWWwR&authKey=pR1Pa5lPIeGF%2FFtIk6d%2FGB5qFi0EdvyErtpQXULzo03zbhopBHLWcuqdpwY241R%2F&noverify=0&group_code=151450850) [![加入QQ群](https://img.shields.io/badge/已满-224622315-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=F58bgRa-Dp-rsQJThiJqIYv8t4-lWfXh&authKey=UmUs4CVG5OPA1whvsa4uSespOvyd8%2FAr9olEGaWAfdLmfKQk%2FVBp2YU3u2xXXt76&noverify=0&group_code=224622315) [![加入QQ群](https://img.shields.io/badge/已满-287842588-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Nxb2EQ5qozWa218Wbs7zgBnjLSNk_tVT&authKey=obBKXj6SBKgrFTJZx0AqQnIYbNOvBB2kmgwWvGhzxR67RoRr84%2Bus5OadzMcdJl5&noverify=0&group_code=287842588) [![加入QQ群](https://img.shields.io/badge/已满-187944233-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=numtK1M_I4eVd2Gvg8qtbuL8JgX42qNh&authKey=giV9XWMaFZTY%2FqPlmWbkB9g3fi0Ev5CwEtT9Tgei0oUlFFCQLDp4ozWRiVIzubIm&noverify=0&group_code=187944233) [![加入QQ群](https://img.shields.io/badge/已满-228578329-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=G6r5KGCaa3pqdbUSXNIgYloyb8e0_L0D&authKey=4w8tF1eGW7%2FedWn%2FHAypQksdrML%2BDHolQSx7094Agm7Luakj9EbfPnSTxSi2T1LQ&noverify=0&group_code=228578329) [![加入QQ群](https://img.shields.io/badge/已满-191164766-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=GsOo-OLz53J8y_9TPoO6XXSGNRTgbFxA&authKey=R7Uy%2Feq%2BZsoKNqHvRKhiXpypW7DAogoWapOawUGHokJSBIBIre2%2FoiAZeZBSLuBc&noverify=0&group_code=191164766) [![加入QQ群](https://img.shields.io/badge/174569686-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PmYavuzsOthVqfdAPbo4uAeIbu7Ttjgc&authKey=p52l8%2FXa4PS1JcEmS3VccKSwOPJUZ1ZfQ69MEKzbrooNUljRtlKjvsXf04bxNp3G&noverify=0&group_code=174569686) 点击按钮入群。
+ 
 
 
 ## 打包
 ```
 mvn clean package -DskipTests -Pproduction
 ```
+
+## Vaadin-Antd 依赖
+
+本项目使用 [vaadin-antd](https://gitee.com/muyun2800/vaadin-antd) 组件库，主要依赖如下：
+
+```xml
+<!-- Vaadin Spring Boot Starter -->
+<dependency>
+    <groupId>com.vaadin</groupId>
+    <artifactId>vaadin-spring-boot-starter</artifactId>
+</dependency>
+
+<!-- Vaadin Antd 基础组件 -->
+<dependency>
+    <groupId>io.gitee.muyun2800</groupId>
+    <artifactId>vaadin-antd</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+<!-- Vaadin Antd ProComponents 高级组件（表格、表单等） -->
+<dependency>
+    <groupId>io.gitee.muyun2800</groupId>
+    <artifactId>vaadin-antd-procomponents</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+<!-- Vaadin Antd Charts 图表组件 -->
+<dependency>
+    <groupId>io.gitee.muyun2800</groupId>
+    <artifactId>vaadin-antd-charts</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+## ListView 最简示例
+
+以下是一个使用 `ProTable` 的 ListView 最简示例：
+
+```java
+package com.example.view;
+
+import com.muyun.vaadin.antd.procomponents.table.ProTable;
+import com.muyun.vaadin.antd.procomponents.table.data.FetchCallback;
+import com.muyun.vaadin.antd.procomponents.table.data.FetchResult;
+import com.muyun.vaadin.antd.procomponents.table.props.ProColumn;
+import com.ruoyi.system.domain.SysPost;
+import com.ruoyi.system.service.ISysPostService;
+import com.ruoyi.ui.view.MainLayoutView;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.router.Route;
+import jakarta.annotation.security.PermitAll;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
+@Route(value = "example/list", layout = MainLayoutView.class)
+@PermitAll
+public class ListView extends Div {
+
+    @Autowired
+    private ISysPostService postService;
+
+    public ListView() {
+        // 创建 ProTable
+        ProTable<SysPost> proTable = new ProTable<>(SysPost.class)
+                .setColumns(createColumns())
+                .setHeaderTitle("岗位列表")
+                .setRowKey(SysPost.Fields.postId);
+
+        // 设置数据源
+        FetchCallback<SysPost> fetchCallback = fetchParam -> {
+            List<SysPost> resultList = postService.selectPostList(null);
+            return new FetchResult<SysPost>()
+                    .setTotal((long) resultList.size())
+                    .setRecords(resultList);
+        };
+        proTable.setItems(fetchCallback);
+
+        add(proTable);
+    }
+
+    /**
+     * 创建表格列
+     */
+    private List<ProColumn<SysPost>> createColumns() {
+        return List.of(
+                new ProColumn<SysPost>()
+                        .setTitle("岗位编号")
+                        .setDataIndex(SysPost::getPostId),
+                new ProColumn<SysPost>()
+                        .setTitle("岗位编码")
+                        .setDataIndex(SysPost::getPostCode),
+                new ProColumn<SysPost>()
+                        .setTitle("岗位名称")
+                        .setDataIndex(SysPost::getPostName),
+                new ProColumn<SysPost>()
+                        .setTitle("状态")
+                        .setDataIndex(SysPost::getStatus)
+        );
+    }
+}
+```
+
+
+## 演示图
+
+<table>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-9996b274886e8134066ccee096fde2089dd.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-66afe06885d34482862536e4f00c87c0475.png"/></td>
+    </tr>    
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-f279ee4e419e9ba80a77fd898ebd8c9ac45.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-b56c891e29d1dfd0213b000339effd256db.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-26d4a0f56967f4c319d6e95cab9652bdbfe.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-125aed48a8214551cb2ce5aa5a1403d78e9.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-59bc1efe5d8f109e56305aa86192ff56bb0.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-6e081044a6f864c96df9a25aaa26516f7fc.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-ed2e67f41c8a56e0db1215645a0d9dd1e52.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-2788241f7893ac8fbfd2b84813f60451755.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-eda1770f6383e0001439b56c3392012213d.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-31c487d7419b16bc79de0d6a6a12789f048.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-31c487d7419b16bc79de0d6a6a12789f048.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-4d8cd86ba198f0263f90a0bd36c47b0317b.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-6d0ba703a00f8b02a0540931c9e67fe816c.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-376159966aa67e7e2fdd971bf68fb0a3375.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-77b186361c754bd9abc6beac7b2dd371858.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-800aba850793feb11e52720153a801cc2e5.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-8835cf289be21d9ed81974764670d78d120.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-31a968948be45abb0a30bd7b69fd9bee501.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-ed8b654a35b70d5b14281c7d5f086658e27.png"/></td>
+        <td><img src="https://oscimg.oschina.net/oscnet/up-e7f3e329aa2052d32f64a372f25ad9f5df1.png"/></td>
+    </tr>
+</table>
+
+## 参考
+- [vaadin-antd: ant design 的vaadin实现](https://gitee.com/muyun2800/vaadin-antd)
+- [vaadin-antd-procomponents: ant design procomponents 的vaadin实现](https://gitee.com/muyun2800/vaadin-antd-procomponents)
+- [vaadin-antd-charts: ant design charts 的vaadin实现 ](https://gitee.com/muyun2800/vaadin-antd-charts)
+- [ruoyi-vaadin: ruoyi的vaadin实现](https://gitee.com/muyun2800/ruoyi-vaadin)
